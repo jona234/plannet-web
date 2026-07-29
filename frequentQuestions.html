@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes — Plannet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo-text">PLANNET</div>
+    <div class="logo-sub" id="header-sub"></div>
+  </div>
+</header>
+<div class="lang-switch" id="lang-switch"></div>
+<div class="container" id="content"></div>
+<footer id="footer-text"></footer>
+<script>
+const faqTranslations = {
+"es": {
+  "headerSub": "Preguntas Frecuentes",
+  "title": "Preguntas Frecuentes",
+  "subtitle": "Todo lo que necesitas saber para empezar",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · España",
+  "contactText": "¿No has encontrado tu respuesta?",
+  "intro": "<strong>Plannet</strong> es una app para crear y descubrir <strong>eventos cercanos</strong> en un mapa: queda con gente para hacer deporte, tomar algo, jugar o cualquier plan que se te ocurra.",
+  "sections": [
+    {"title": "Primeros pasos", "cards": [
+      {"type": "", "body": "<strong>¿Cómo creo una cuenta?</strong>", "bodyAfter": "Regístrate con tu correo, un nombre de usuario y tu edad (mínimo 16 años). Te enviaremos un correo de verificación: debes confirmarlo antes de poder iniciar sesión."},
+      {"type": "", "body": "<strong>No me llega el correo de verificación</strong>", "bodyAfter": "Revisa la carpeta de spam. Desde la pantalla de inicio de sesión puedes solicitar que te lo <strong>reenviemos</strong>."},
+      {"type": "info", "body": "<strong>¿Por qué necesita mi ubicación?</strong>", "bodyAfter": "Para mostrarte los eventos que hay <strong>cerca de ti</strong> en el mapa y para situar los eventos que crees. Solo se usa mientras tienes la app abierta; no hacemos seguimiento en segundo plano."}
+    ]},
+    {"title": "Eventos", "cards": [
+      {"type": "", "body": "<strong>¿Cómo creo un evento?</strong>", "bodyAfter": "Toca en el mapa el punto donde quieras crearlo y rellena el formulario: título, descripción, fecha y hora, duración, número máximo de participantes y categoría."},
+      {"type": "", "body": "<strong>¿Qué significan los colores de los marcadores?</strong>", "list": ["<strong>Gris:</strong> eventos creados por ti.", "<strong>Verde:</strong> eventos de tus amigos.", "<strong>Rojo:</strong> eventos de empresas.", "<strong>Azul:</strong> el resto de eventos."]},
+      {"type": "", "body": "<strong>¿Cómo me apunto a un evento?</strong>", "bodyAfter": "Toca su marcador en el mapa y pulsa <em>Apuntarse</em>. Si el evento está completo no podrás unirte. Puedes salir en cualquier momento mientras no haya comenzado."},
+      {"type": "", "body": "<strong>¿Qué pasa cuando termina un evento?</strong>", "bodyAfter": "El evento pasa a <em>finalizado</em> automáticamente y quienes asistieron reciben un aviso para <strong>puntuarlo</strong> del 1 al 5. Puedes ver tus eventos pasados en <em>Mis eventos finalizados</em>."}
+    ]},
+    {"title": "Amigos y chat", "cards": [
+      {"type": "", "body": "<strong>¿Cómo añado amigos?</strong>", "bodyAfter": "En la pestaña <em>Amigos</em> tienes un buscador por nombre de usuario. Envía la solicitud y, cuando la acepten, aparecerá en tu lista."},
+      {"type": "", "body": "<strong>¿Con quién puedo chatear?</strong>", "bodyAfter": "El chat está disponible <strong>solo entre amigos</strong>. Si eliminas a un amigo, dejaréis de poder escribiros."},
+      {"type": "info", "body": "<strong>¿Se guardan mis mensajes para siempre?</strong>", "bodyAfter": "No. Los mensajes se <strong>eliminan automáticamente a los 30 días</strong> de enviarse."},
+      {"type": "", "body": "<strong>Si elimino a un amigo, ¿se entera?</strong>", "bodyAfter": "No recibe ninguna notificación, pero la amistad desaparece para ambos y dejaréis de veros como amigos."}
+    ]},
+    {"title": "Puntos y logros", "cards": [
+      {"type": "", "body": "<strong>¿Cómo consigo puntos?</strong>", "bodyAfter": "Desbloqueando <strong>logros</strong>: crear tu primer evento, apuntarte a eventos, hacer tu primer amigo, enviar tu primera valoración… Cada logro suma puntos a tu perfil."},
+      {"type": "", "body": "<strong>¿Para qué sirve el ranking?</strong>", "bodyAfter": "Ordena a los usuarios por puntos acumulados. Puedes consultarlo desde el menú lateral."}
+    ]},
+    {"title": "Cuenta y seguridad", "cards": [
+      {"type": "warning", "body": "<strong>¿Es seguro quedar con desconocidos?</strong>", "bodyAfter": "Los eventos los crean los propios usuarios y <strong>no verificamos identidades</strong>. Queda en <strong>lugares públicos</strong>, avisa a alguien de confianza de dónde vas y abandona la situación si algo te incomoda. Consulta el apartado de seguridad de nuestra <a href='privacyPolicy.html?lang=es'>política de privacidad</a>."},
+      {"type": "", "body": "<strong>¿Cómo elimino mi cuenta?</strong>", "bodyAfter": "Puedes hacerlo tú mismo desde nuestra <a href='delete-account.html?lang=es'>página de eliminación de cuenta</a>. Si te registraste con Google o Apple y no tienes contraseña, escríbenos a <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>."},
+      {"type": "", "body": "<strong>¿Cómo reporto a un usuario o un evento?</strong>", "bodyAfter": "Escríbenos a <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> indicando el usuario o el evento. Revisamos todos los avisos, y los relacionados con menores con máxima prioridad."}
+    ]}
+  ]
+},
+"en": {
+  "headerSub": "Frequently Asked Questions",
+  "title": "Frequently Asked Questions",
+  "subtitle": "Everything you need to get started",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spain",
+  "contactText": "Didn't find your answer?",
+  "intro": "<strong>Plannet</strong> is an app for creating and discovering <strong>nearby events</strong> on a map: meet people to play sports, grab a drink, play games or whatever plan you come up with.",
+  "sections": [
+    {"title": "Getting started", "cards": [
+      {"type": "", "body": "<strong>How do I create an account?</strong>", "bodyAfter": "Sign up with your email, a username and your age (16 minimum). We will send you a verification email: you must confirm it before you can log in."},
+      {"type": "", "body": "<strong>I didn't receive the verification email</strong>", "bodyAfter": "Check your spam folder. From the login screen you can ask us to <strong>resend</strong> it."},
+      {"type": "info", "body": "<strong>Why does the app need my location?</strong>", "bodyAfter": "To show you events <strong>near you</strong> on the map and to place the events you create. It is only used while the app is open; we do not track you in the background."}
+    ]},
+    {"title": "Events", "cards": [
+      {"type": "", "body": "<strong>How do I create an event?</strong>", "bodyAfter": "Tap the spot on the map where you want it and fill in the form: title, description, date and time, duration, maximum number of participants and category."},
+      {"type": "", "body": "<strong>What do the marker colours mean?</strong>", "list": ["<strong>Grey:</strong> events you created.", "<strong>Green:</strong> your friends' events.", "<strong>Red:</strong> company events.", "<strong>Blue:</strong> all other events."]},
+      {"type": "", "body": "<strong>How do I join an event?</strong>", "bodyAfter": "Tap its marker on the map and press <em>Join</em>. If the event is full you will not be able to join. You can leave at any time before it starts."},
+      {"type": "", "body": "<strong>What happens when an event ends?</strong>", "bodyAfter": "The event is automatically marked as <em>finished</em> and everyone who attended gets a prompt to <strong>rate it</strong> from 1 to 5. You can see your past events under <em>My finished events</em>."}
+    ]},
+    {"title": "Friends and chat", "cards": [
+      {"type": "", "body": "<strong>How do I add friends?</strong>", "bodyAfter": "The <em>Friends</em> tab has a search box by username. Send the request and, once accepted, they will appear in your list."},
+      {"type": "", "body": "<strong>Who can I chat with?</strong>", "bodyAfter": "Chat is available <strong>between friends only</strong>. If you remove a friend, you will no longer be able to message each other."},
+      {"type": "info", "body": "<strong>Are my messages kept forever?</strong>", "bodyAfter": "No. Messages are <strong>automatically deleted 30 days</strong> after being sent."},
+      {"type": "", "body": "<strong>If I remove a friend, will they know?</strong>", "bodyAfter": "They receive no notification, but the friendship disappears for both of you and you will no longer see each other as friends."}
+    ]},
+    {"title": "Points and achievements", "cards": [
+      {"type": "", "body": "<strong>How do I earn points?</strong>", "bodyAfter": "By unlocking <strong>achievements</strong>: creating your first event, joining events, making your first friend, sending your first rating… Each achievement adds points to your profile."},
+      {"type": "", "body": "<strong>What is the ranking for?</strong>", "bodyAfter": "It ranks users by total points. You can view it from the side menu."}
+    ]},
+    {"title": "Account and safety", "cards": [
+      {"type": "warning", "body": "<strong>Is it safe to meet strangers?</strong>", "bodyAfter": "Events are created by users themselves and we <strong>do not verify identities</strong>. Meet in <strong>public places</strong>, tell someone you trust where you are going, and leave if anything makes you uncomfortable. See the safety section of our <a href='privacyPolicy.html?lang=en'>privacy policy</a>."},
+      {"type": "", "body": "<strong>How do I delete my account?</strong>", "bodyAfter": "You can do it yourself from our <a href='delete-account.html?lang=en'>account deletion page</a>. If you signed up with Google or Apple and have no password, write to us at <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>."},
+      {"type": "", "body": "<strong>How do I report a user or an event?</strong>", "bodyAfter": "Write to us at <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> stating the user or event. We review all reports, and those involving minors as our highest priority."}
+    ]}
+  ]
+},
+"de": {
+  "headerSub": "Häufige Fragen",
+  "title": "Häufige Fragen",
+  "subtitle": "Alles, was du für den Start wissen musst",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spanien",
+  "contactText": "Keine Antwort gefunden?",
+  "intro": "<strong>Plannet</strong> ist eine App, mit der du <strong>Events in deiner Nähe</strong> auf einer Karte erstellen und entdecken kannst: Verabrede dich zum Sport, auf ein Getränk, zum Spielen oder für jeden anderen Plan.",
+  "sections": [
+    {"title": "Erste Schritte", "cards": [
+      {"type": "", "body": "<strong>Wie erstelle ich ein Konto?</strong>", "bodyAfter": "Registriere dich mit deiner E-Mail-Adresse, einem Benutzernamen und deinem Alter (mindestens 16 Jahre). Wir senden dir eine Bestätigungs-E-Mail, die du vor dem ersten Login bestätigen musst."},
+      {"type": "", "body": "<strong>Ich habe keine Bestätigungs-E-Mail erhalten</strong>", "bodyAfter": "Prüfe deinen Spam-Ordner. Über den Anmeldebildschirm kannst du sie <strong>erneut senden</strong> lassen."},
+      {"type": "info", "body": "<strong>Warum benötigt die App meinen Standort?</strong>", "bodyAfter": "Um dir Events <strong>in deiner Nähe</strong> auf der Karte anzuzeigen und deine eigenen Events zu platzieren. Der Standort wird nur bei geöffneter App verwendet; es findet keine Verfolgung im Hintergrund statt."}
+    ]},
+    {"title": "Events", "cards": [
+      {"type": "", "body": "<strong>Wie erstelle ich ein Event?</strong>", "bodyAfter": "Tippe auf der Karte auf die gewünschte Stelle und fülle das Formular aus: Titel, Beschreibung, Datum und Uhrzeit, Dauer, maximale Teilnehmerzahl und Kategorie."},
+      {"type": "", "body": "<strong>Was bedeuten die Farben der Marker?</strong>", "list": ["<strong>Grau:</strong> von dir erstellte Events.", "<strong>Grün:</strong> Events deiner Freunde.", "<strong>Rot:</strong> Events von Unternehmen.", "<strong>Blau:</strong> alle übrigen Events."]},
+      {"type": "", "body": "<strong>Wie nehme ich an einem Event teil?</strong>", "bodyAfter": "Tippe auf den Marker und drücke <em>Beitreten</em>. Ist das Event voll, kannst du nicht beitreten. Vor dem Start kannst du es jederzeit wieder verlassen."},
+      {"type": "", "body": "<strong>Was passiert, wenn ein Event endet?</strong>", "bodyAfter": "Das Event wird automatisch als <em>beendet</em> markiert und alle Teilnehmenden werden aufgefordert, es mit <strong>1 bis 5</strong> zu bewerten. Frühere Events findest du unter <em>Meine abgeschlossenen Events</em>."}
+    ]},
+    {"title": "Freunde und Chat", "cards": [
+      {"type": "", "body": "<strong>Wie füge ich Freunde hinzu?</strong>", "bodyAfter": "Im Tab <em>Freunde</em> gibt es eine Suche nach Benutzernamen. Sende die Anfrage; sobald sie angenommen wird, erscheint die Person in deiner Liste."},
+      {"type": "", "body": "<strong>Mit wem kann ich chatten?</strong>", "bodyAfter": "Der Chat ist <strong>nur zwischen Freunden</strong> verfügbar. Wenn du einen Freund entfernst, könnt ihr euch nicht mehr schreiben."},
+      {"type": "info", "body": "<strong>Werden meine Nachrichten dauerhaft gespeichert?</strong>", "bodyAfter": "Nein. Nachrichten werden <strong>30 Tage</strong> nach dem Versand automatisch gelöscht."},
+      {"type": "", "body": "<strong>Erfährt es ein Freund, wenn ich ihn entferne?</strong>", "bodyAfter": "Es wird keine Benachrichtigung gesendet, aber die Freundschaft verschwindet für beide Seiten."}
+    ]},
+    {"title": "Punkte und Erfolge", "cards": [
+      {"type": "", "body": "<strong>Wie bekomme ich Punkte?</strong>", "bodyAfter": "Durch das Freischalten von <strong>Erfolgen</strong>: dein erstes Event erstellen, an Events teilnehmen, deinen ersten Freund gewinnen, deine erste Bewertung abgeben… Jeder Erfolg bringt Punkte."},
+      {"type": "", "body": "<strong>Wozu dient die Rangliste?</strong>", "bodyAfter": "Sie sortiert die Nutzer nach gesammelten Punkten. Du findest sie im Seitenmenü."}
+    ]},
+    {"title": "Konto und Sicherheit", "cards": [
+      {"type": "warning", "body": "<strong>Ist es sicher, sich mit Unbekannten zu treffen?</strong>", "bodyAfter": "Events werden von Nutzern selbst erstellt und wir <strong>überprüfen keine Identitäten</strong>. Triff dich an <strong>öffentlichen Orten</strong>, informiere eine Vertrauensperson und gehe, wenn dir etwas unangenehm ist. Siehe den Sicherheitsabschnitt unserer <a href='privacyPolicy.html?lang=de'>Datenschutzerklärung</a>."},
+      {"type": "", "body": "<strong>Wie lösche ich mein Konto?</strong>", "bodyAfter": "Du kannst es selbst über unsere <a href='delete-account.html?lang=de'>Seite zur Kontolöschung</a> erledigen. Wenn du dich mit Google oder Apple registriert hast und kein Passwort besitzt, schreibe uns an <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>."},
+      {"type": "", "body": "<strong>Wie melde ich einen Nutzer oder ein Event?</strong>", "bodyAfter": "Schreibe uns an <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> und nenne den Nutzer oder das Event. Wir prüfen alle Meldungen; Fälle mit Minderjährigen mit höchster Priorität."}
+    ]}
+  ]
+},
+"zh": {
+  "headerSub": "常见问题",
+  "title": "常见问题",
+  "subtitle": "开始使用前你需要知道的一切",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · 西班牙",
+  "contactText": "没有找到答案？",
+  "intro": "<strong>Plannet</strong> 是一款在地图上创建和发现<strong>附近活动</strong>的应用：约人一起运动、喝一杯、玩游戏，或任何你想到的计划。",
+  "sections": [
+    {"title": "开始使用", "cards": [
+      {"type": "", "body": "<strong>如何创建账户？</strong>", "bodyAfter": "使用邮箱、用户名和年龄（至少 16 岁）注册。我们会向您发送验证邮件，您需先确认后才能登录。"},
+      {"type": "", "body": "<strong>没有收到验证邮件</strong>", "bodyAfter": "请检查垃圾邮件文件夹。您也可以在登录界面请求我们<strong>重新发送</strong>。"},
+      {"type": "info", "body": "<strong>为什么应用需要我的位置？</strong>", "bodyAfter": "用于在地图上向您展示<strong>附近的活动</strong>，并标定您创建的活动位置。仅在应用打开时使用；我们不会在后台追踪您。"}
+    ]},
+    {"title": "活动", "cards": [
+      {"type": "", "body": "<strong>如何创建活动？</strong>", "bodyAfter": "在地图上点击想要创建的位置，并填写表单：标题、描述、日期与时间、时长、最大参与人数和类别。"},
+      {"type": "", "body": "<strong>标记的颜色代表什么？</strong>", "list": ["<strong>灰色：</strong>您创建的活动。", "<strong>绿色：</strong>好友的活动。", "<strong>红色：</strong>企业活动。", "<strong>蓝色：</strong>其他所有活动。"]},
+      {"type": "", "body": "<strong>如何参加活动？</strong>", "bodyAfter": "点击地图上的标记并按<em>加入</em>。若活动已满则无法加入。活动开始前您可随时退出。"},
+      {"type": "", "body": "<strong>活动结束后会怎样？</strong>", "bodyAfter": "活动会自动标记为<em>已结束</em>，所有参加者会收到提示为其<strong>评分</strong>（1 至 5 分）。您可在<em>我的已结束活动</em>中查看历史活动。"}
+    ]},
+    {"title": "好友与聊天", "cards": [
+      {"type": "", "body": "<strong>如何添加好友？</strong>", "bodyAfter": "在<em>好友</em>标签页可按用户名搜索。发送请求，对方接受后即会出现在您的好友列表中。"},
+      {"type": "", "body": "<strong>我可以和谁聊天？</strong>", "bodyAfter": "聊天<strong>仅限好友之间</strong>。如果您删除某位好友，双方将无法再互发消息。"},
+      {"type": "info", "body": "<strong>我的消息会永久保存吗？</strong>", "bodyAfter": "不会。消息在发送 <strong>30 天后自动删除</strong>。"},
+      {"type": "", "body": "<strong>如果我删除好友，对方会知道吗？</strong>", "bodyAfter": "对方不会收到通知，但好友关系对双方都会消失。"}
+    ]},
+    {"title": "积分与成就", "cards": [
+      {"type": "", "body": "<strong>如何获得积分？</strong>", "bodyAfter": "通过解锁<strong>成就</strong>：创建首个活动、参加活动、结识首位好友、提交首次评分等。每个成就都会为您的档案增加积分。"},
+      {"type": "", "body": "<strong>排行榜有什么用？</strong>", "bodyAfter": "按累计积分对用户排序。您可从侧边菜单查看。"}
+    ]},
+    {"title": "账户与安全", "cards": [
+      {"type": "warning", "body": "<strong>与陌生人见面安全吗？</strong>", "bodyAfter": "活动由用户自行创建，我们<strong>不核实身份</strong>。请在<strong>公共场所</strong>见面，告知信任的人您的去向，若感到不适请立即离开。请参阅我们<a href='privacyPolicy.html?lang=zh'>隐私政策</a>中的安全章节。"},
+      {"type": "", "body": "<strong>如何删除我的账户？</strong>", "bodyAfter": "您可以通过我们的<a href='delete-account.html?lang=zh'>账户删除页面</a>自行完成。如果您使用 Google 或 Apple 注册且没有密码，请发送邮件至 <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>。"},
+      {"type": "", "body": "<strong>如何举报用户或活动？</strong>", "bodyAfter": "请发送邮件至 <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> 并说明相关用户或活动。我们会审查所有举报，涉及未成年人的将以最高优先级处理。"}
+    ]}
+  ]
+}
+};
+
+function buildCard(card) {
+  let h = '<div class="card ' + (card.type||'') + '">';
+  if (card.body) h += '<p>' + card.body + '</p>';
+  if (card.lines) card.lines.forEach(function(l){ h += '<p>' + l + '</p>'; });
+  if (card.list) h += '<ul>' + card.list.map(function(l){ return '<li>'+l+'</li>'; }).join('') + '</ul>';
+  if (card.bodyAfter) h += '<p>' + card.bodyAfter + '</p>';
+  return h + '</div>';
+}
+
+function buildLangSwitch(current) {
+  const names = {es:'ES', en:'EN', de:'DE', zh:'中文'};
+  return Object.keys(names).map(function(l){
+    return '<a href="?lang=' + l + '"' + (l === current ? ' class="active"' : '') + '>' + names[l] + '</a>';
+  }).join('');
+}
+
+function render(lang) {
+  const t = faqTranslations[lang] || faqTranslations['es'];
+  document.documentElement.lang = lang;
+  document.getElementById('header-sub').textContent = t.headerSub;
+  document.title = t.headerSub + ' — Plannet';
+  document.getElementById('footer-text').textContent = t.footer;
+  document.getElementById('lang-switch').innerHTML = buildLangSwitch(lang);
+  let html = '<h1>' + t.title + '</h1><span class="subtitle">' + t.subtitle + '</span><p>' + t.intro + '</p>';
+  t.sections.forEach(function(section) {
+    html += '<h2>' + section.title + '</h2>';
+    section.cards.forEach(function(card) { html += buildCard(card); });
+  });
+  html += '<div class="contact-box"><p>' + t.contactText + '</p><a href="mailto:devlicius.online@gmail.com">devlicius.online@gmail.com</a></div>';
+  document.getElementById('content').innerHTML = html;
+}
+
+const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang') || 'es';
+render(['es','en','de','zh'].includes(lang) ? lang : 'es');
+</script>
+</body>
+</html>

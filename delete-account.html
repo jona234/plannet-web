@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar cuenta — Plannet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo-text">PLANNET</div>
+    <div class="logo-sub" id="header-sub"></div>
+  </div>
+</header>
+<div class="lang-switch" id="lang-switch"></div>
+<div class="container" id="content"></div>
+<footer id="footer-text"></footer>
+<script>
+// ⚠️ Actualizar con la URL publica de la API cuando este desplegada.
+const API = 'https://plannet-production.up.railway.app';
+
+const tr = {
+"es": {
+  "headerSub": "Eliminar cuenta",
+  "title": "Eliminar tu cuenta de Plannet",
+  "subtitle": "Esta acción es permanente y no se puede deshacer",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · España",
+  "infoTitle": "Qué se elimina",
+  "infoBody": "Al eliminar tu cuenta se borrarán de forma permanente:",
+  "infoList": [
+    "Tu perfil, correo electrónico y datos de registro.",
+    "Los eventos que hayas creado, junto con sus participantes y comentarios.",
+    "Tus asistencias a eventos de otras personas.",
+    "Tus amistades y solicitudes pendientes.",
+    "Tus conversaciones y mensajes de chat.",
+    "Tus comentarios, valoraciones, puntos y logros."
+  ],
+  "warning": "No podremos recuperar nada de esto después. Si solo quieres dejar de recibir avisos, puedes desinstalar la app sin borrar la cuenta.",
+  "formTitle": "Confirma tu identidad",
+  "formBody": "Introduce las credenciales de la cuenta que quieres eliminar.",
+  "labelUser": "Email o nombre de usuario",
+  "labelPass": "Contraseña",
+  "checkLabel": "Entiendo que esta acción es permanente",
+  "btn": "Eliminar mi cuenta",
+  "btnLoading": "Eliminando…",
+  "okTitle": "Cuenta eliminada",
+  "okBody": "Tu cuenta y todos tus datos se han eliminado correctamente. Gracias por haber usado Plannet.",
+  "errInvalid": "Las credenciales no son correctas.",
+  "errNotVerified": "Esta cuenta no está verificada. Verifícala antes de poder eliminarla.",
+  "errBanned": "Esta cuenta está suspendida. Escríbenos para eliminarla.",
+  "errCheck": "Debes confirmar que entiendes que la acción es permanente.",
+  "errFields": "Rellena todos los campos.",
+  "errGeneric": "No se ha podido completar la operación. Inténtalo más tarde o escríbenos.",
+  "socialNote": "¿Te registraste con Google o Apple y no tienes contraseña? Escríbenos a",
+  "contactText": "¿Prefieres que lo hagamos nosotros?"
+},
+"en": {
+  "headerSub": "Delete account",
+  "title": "Delete your Plannet account",
+  "subtitle": "This action is permanent and cannot be undone",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spain",
+  "infoTitle": "What gets deleted",
+  "infoBody": "Deleting your account will permanently remove:",
+  "infoList": [
+    "Your profile, email address and registration details.",
+    "Events you created, along with their participants and comments.",
+    "Your attendance records for other people's events.",
+    "Your friendships and pending requests.",
+    "Your conversations and chat messages.",
+    "Your comments, ratings, points and achievements."
+  ],
+  "warning": "We will not be able to recover any of this afterwards. If you only want to stop receiving notifications, you can uninstall the app without deleting your account.",
+  "formTitle": "Confirm your identity",
+  "formBody": "Enter the credentials of the account you want to delete.",
+  "labelUser": "Email or username",
+  "labelPass": "Password",
+  "checkLabel": "I understand this action is permanent",
+  "btn": "Delete my account",
+  "btnLoading": "Deleting…",
+  "okTitle": "Account deleted",
+  "okBody": "Your account and all your data have been deleted successfully. Thank you for using Plannet.",
+  "errInvalid": "Those credentials are not correct.",
+  "errNotVerified": "This account is not verified. Verify it before deleting it.",
+  "errBanned": "This account is suspended. Please contact us to delete it.",
+  "errCheck": "You must confirm that you understand this action is permanent.",
+  "errFields": "Please fill in all fields.",
+  "errGeneric": "The operation could not be completed. Try again later or contact us.",
+  "socialNote": "Did you sign up with Google or Apple and have no password? Write to us at",
+  "contactText": "Would you rather we did it for you?"
+},
+"de": {
+  "headerSub": "Konto löschen",
+  "title": "Dein Plannet-Konto löschen",
+  "subtitle": "Diese Aktion ist endgültig und kann nicht rückgängig gemacht werden",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spanien",
+  "infoTitle": "Was gelöscht wird",
+  "infoBody": "Mit dem Löschen deines Kontos werden dauerhaft entfernt:",
+  "infoList": [
+    "Dein Profil, deine E-Mail-Adresse und deine Registrierungsdaten.",
+    "Von dir erstellte Events samt Teilnehmern und Kommentaren.",
+    "Deine Teilnahmen an Events anderer Personen.",
+    "Deine Freundschaften und offenen Anfragen.",
+    "Deine Unterhaltungen und Chat-Nachrichten.",
+    "Deine Kommentare, Bewertungen, Punkte und Erfolge."
+  ],
+  "warning": "Wir können davon nichts wiederherstellen. Wenn du nur keine Benachrichtigungen mehr erhalten möchtest, kannst du die App deinstallieren, ohne dein Konto zu löschen.",
+  "formTitle": "Bestätige deine Identität",
+  "formBody": "Gib die Zugangsdaten des Kontos ein, das du löschen möchtest.",
+  "labelUser": "E-Mail oder Benutzername",
+  "labelPass": "Passwort",
+  "checkLabel": "Ich verstehe, dass diese Aktion endgültig ist",
+  "btn": "Mein Konto löschen",
+  "btnLoading": "Wird gelöscht…",
+  "okTitle": "Konto gelöscht",
+  "okBody": "Dein Konto und alle deine Daten wurden erfolgreich gelöscht. Danke, dass du Plannet genutzt hast.",
+  "errInvalid": "Diese Zugangsdaten sind nicht korrekt.",
+  "errNotVerified": "Dieses Konto ist nicht verifiziert. Verifiziere es, bevor du es löschst.",
+  "errBanned": "Dieses Konto ist gesperrt. Bitte kontaktiere uns zur Löschung.",
+  "errCheck": "Du musst bestätigen, dass du die Endgültigkeit verstehst.",
+  "errFields": "Bitte fülle alle Felder aus.",
+  "errGeneric": "Der Vorgang konnte nicht abgeschlossen werden. Versuche es später erneut oder kontaktiere uns.",
+  "socialNote": "Hast du dich mit Google oder Apple registriert und kein Passwort? Schreibe uns an",
+  "contactText": "Sollen wir es für dich übernehmen?"
+},
+"zh": {
+  "headerSub": "删除账户",
+  "title": "删除您的 Plannet 账户",
+  "subtitle": "此操作不可逆，无法撤销",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · 西班牙",
+  "infoTitle": "将删除的内容",
+  "infoBody": "删除账户将永久移除：",
+  "infoList": [
+    "您的个人资料、电子邮箱和注册信息。",
+    "您创建的活动，及其参与者和评论。",
+    "您参加他人活动的记录。",
+    "您的好友关系和待处理请求。",
+    "您的对话和聊天消息。",
+    "您的评论、评分、积分和成就。"
+  ],
+  "warning": "此后我们将无法恢复任何上述内容。如果您只是不想再收到通知，可以卸载应用而不删除账户。",
+  "formTitle": "确认您的身份",
+  "formBody": "请输入您要删除的账户凭据。",
+  "labelUser": "邮箱或用户名",
+  "labelPass": "密码",
+  "checkLabel": "我了解此操作不可逆",
+  "btn": "删除我的账户",
+  "btnLoading": "正在删除…",
+  "okTitle": "账户已删除",
+  "okBody": "您的账户及所有数据已成功删除。感谢您使用 Plannet。",
+  "errInvalid": "凭据不正确。",
+  "errNotVerified": "该账户未验证。请先验证后再删除。",
+  "errBanned": "该账户已被暂停。请联系我们以删除。",
+  "errCheck": "您必须确认了解此操作不可逆。",
+  "errFields": "请填写所有字段。",
+  "errGeneric": "操作无法完成。请稍后重试或联系我们。",
+  "socialNote": "如果您使用 Google 或 Apple 注册且没有密码，请发送邮件至",
+  "contactText": "希望由我们代为处理？"
+}
+};
+
+function buildLangSwitch(current) {
+  const names = {es:'ES', en:'EN', de:'DE', zh:'中文'};
+  return Object.keys(names).map(function(l){
+    return '<a href="?lang=' + l + '"' + (l === current ? ' class="active"' : '') + '>' + names[l] + '</a>';
+  }).join('');
+}
+
+let t;
+
+function render(lang) {
+  t = tr[lang] || tr['es'];
+  document.documentElement.lang = lang;
+  document.getElementById('header-sub').textContent = t.headerSub;
+  document.title = t.headerSub + ' — Plannet';
+  document.getElementById('footer-text').textContent = t.footer;
+  document.getElementById('lang-switch').innerHTML = buildLangSwitch(lang);
+
+  document.getElementById('content').innerHTML =
+    '<h1>' + t.title + '</h1>' +
+    '<span class="subtitle">' + t.subtitle + '</span>' +
+    '<div class="card info"><h3>' + t.infoTitle + '</h3><p>' + t.infoBody + '</p><ul>' +
+      t.infoList.map(function(l){ return '<li>' + l + '</li>'; }).join('') +
+    '</ul></div>' +
+    '<div class="card warning"><p>' + t.warning + '</p></div>' +
+    '<div class="card danger" id="form-card">' +
+      '<h3>' + t.formTitle + '</h3>' +
+      '<p>' + t.formBody + '</p>' +
+      '<div id="error-slot"></div>' +
+      '<div class="form-group"><label for="user">' + t.labelUser + '</label>' +
+        '<input type="text" id="user" autocomplete="username"></div>' +
+      '<div class="form-group"><label for="pass">' + t.labelPass + '</label>' +
+        '<input type="password" id="pass" autocomplete="current-password"></div>' +
+      '<div class="form-group"><label style="text-transform:none;font-weight:400">' +
+        '<input type="checkbox" id="confirm" style="width:auto;margin-right:8px"> ' +
+        t.checkLabel + '</label></div>' +
+      '<button id="btn-delete">' + t.btn + '</button>' +
+      '<p style="margin-top:16px;font-size:13px;color:#777">' + t.socialNote +
+        ' <a href="mailto:devlicius.online@gmail.com">devlicius.online@gmail.com</a></p>' +
+    '</div>' +
+    '<div class="contact-box"><p>' + t.contactText + '</p>' +
+      '<a href="mailto:devlicius.online@gmail.com">devlicius.online@gmail.com</a></div>';
+
+  document.getElementById('btn-delete').addEventListener('click', deleteAccount);
+}
+
+function showError(msg) {
+  document.getElementById('error-slot').innerHTML =
+    '<div class="error-msg">' + msg + '</div>';
+}
+
+function mapError(code) {
+  switch (code) {
+    case 'INVALID_CREDENTIALS': return t.errInvalid;
+    case 'ACCOUNT_NOT_VERIFIED': return t.errNotVerified;
+    case 'ACCOUNT_BANNED': return t.errBanned;
+    case 'PASSWORD_REQUIRED': return t.errFields;
+    default: return t.errGeneric;
+  }
+}
+
+async function deleteAccount() {
+  const user = document.getElementById('user').value.trim();
+  const pass = document.getElementById('pass').value;
+  const confirmed = document.getElementById('confirm').checked;
+  const btn = document.getElementById('btn-delete');
+
+  document.getElementById('error-slot').innerHTML = '';
+
+  if (!user || !pass) return showError(t.errFields);
+  if (!confirmed) return showError(t.errCheck);
+
+  btn.disabled = true;
+  btn.textContent = t.btnLoading;
+
+  try {
+    // 1. Login para obtener el token
+    const loginRes = await fetch(API + '/api/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({emailOrNick: user, password: pass})
+    });
+
+    if (!loginRes.ok) {
+      const data = await loginRes.json().catch(function(){ return {}; });
+      throw new Error(data.code || 'GENERIC');
+    }
+
+    const {accessToken} = await loginRes.json();
+
+    // 2. Borrar la cuenta
+    const delRes = await fetch(API + '/api/users/me', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      },
+      body: JSON.stringify({password: pass})
+    });
+
+    if (!delRes.ok) {
+      const data = await delRes.json().catch(function(){ return {}; });
+      throw new Error(data.code || 'GENERIC');
+    }
+
+    // 3. Confirmacion
+    document.getElementById('form-card').outerHTML =
+      '<div class="card success-card">' +
+        '<div class="success-icon">✓</div>' +
+        '<h2>' + t.okTitle + '</h2>' +
+        '<p>' + t.okBody + '</p>' +
+      '</div>';
+
+  } catch (e) {
+    showError(mapError(e.message));
+    btn.disabled = false;
+    btn.textContent = t.btn;
+  }
+}
+
+const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang') || 'es';
+render(['es','en','de','zh'].includes(lang) ? lang : 'es');
+</script>
+</body>
+</html>

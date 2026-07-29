@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Seguridad Infantil — Plannet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo-text">PLANNET</div>
+    <div class="logo-sub" id="header-sub"></div>
+  </div>
+</header>
+<div class="lang-switch" id="lang-switch"></div>
+<div class="container" id="content"></div>
+<footer id="footer-text"></footer>
+<script>
+const childTranslations = {
+"es": {
+  "headerSub": "Política de Seguridad Infantil",
+  "title": "Política de Seguridad Infantil y Normas contra el Abuso y la Explotación Sexual Infantil (CSAE)",
+  "subtitle": "Última actualización: julio de 2026",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · España",
+  "contactText": "Para denunciar contenido o conductas que afecten a menores:",
+  "intro": "<strong>Plannet</strong> aplica una política de <strong>tolerancia cero</strong> frente al abuso y la explotación sexual infantil (CSAE, por sus siglas en inglés). Esta página describe nuestras normas, los mecanismos de denuncia disponibles y cómo actuamos ante cualquier indicio de riesgo para un menor.",
+  "sections": [
+    {"title": "1. Edad mínima", "cards": [{"type": "info", "body": "Plannet <strong>solo está disponible para personas de 16 años o más</strong>. El registro exige declarar la edad y no se permite crear cuentas por debajo de ese límite. Si detectamos que una cuenta pertenece a un menor de 16 años, la <strong>eliminaremos</strong>.", "bodyAfter": "Los usuarios de 16 y 17 años necesitan el consentimiento de su padre, madre o tutor legal para usar la aplicación."}]},
+    {"title": "2. Conductas prohibidas", "cards": [{"type": "danger", "body": "Están <strong>terminantemente prohibidas</strong> y suponen la eliminación inmediata y permanente de la cuenta:", "list": ["Cualquier material de abuso sexual infantil (CSAM) o contenido que sexualice a menores.", "El <strong>grooming</strong>: contactar con un menor con la intención de abusar de él o ganarse su confianza con fines sexuales.", "Solicitar imágenes, vídeos o información de carácter sexual a un menor.", "Crear eventos dirigidos a menores con fines sexuales, de captación o de cualquier otra forma de explotación.", "Compartir o difundir enlaces a material de abuso infantil.", "Suplantar la identidad de un menor o hacerse pasar por otra persona para contactar con menores."], "bodyAfter": "Estas conductas no solo violan nuestras normas: son <strong>delitos</strong> y serán tratadas como tales."}]},
+    {"title": "3. Cómo denunciar", "cards": [{"type": "warning", "body": "Si detectas contenido, un usuario o un evento que ponga en riesgo a un menor:", "list": ["Escríbenos de inmediato a <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> indicando el nombre de usuario o el evento implicado.", "Puedes <strong>bloquear</strong> al usuario y <strong>abandonar</strong> el evento desde la propia aplicación.", "Revisamos todas las denuncias relacionadas con menores con <strong>máxima prioridad</strong>."], "bodyAfter": "Si crees que un menor está en peligro inmediato, <strong>contacta con las autoridades locales</strong> (en España, el 112 o la Policía Nacional) antes o además de avisarnos."}]},
+    {"title": "4. Cómo actuamos", "cards": [{"type": "", "body": "Ante una denuncia o indicio de CSAE:", "list": ["Revisamos el caso con carácter <strong>prioritario y urgente</strong>.", "<strong>Suspendemos</strong> la cuenta implicada de forma preventiva mientras investigamos.", "<strong>Eliminamos</strong> el contenido o el evento infractor.", "Si se confirma, procedemos a la <strong>eliminación permanente</strong> de la cuenta y conservamos la información necesaria para colaborar con las autoridades.", "<strong>Denunciamos</strong> los casos a las autoridades competentes y colaboramos con sus requerimientos."]}]},
+    {"title": "5. Punto de contacto", "cards": [{"type": "info", "body": "Responsable de seguridad infantil y punto de contacto para autoridades y cuerpos policiales:", "lines": ["<strong>Nombre:</strong> Jonatan Ortega González", "<strong>Correo:</strong> <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>", "<strong>País:</strong> España"]}]},
+    {"title": "6. Cumplimiento normativo", "cards": [{"type": "", "body": "Plannet cumple con la legislación española y europea aplicable en materia de protección de menores, así como con las <strong>Normas de Seguridad Infantil de Google Play</strong> y las directrices equivalentes de la App Store de Apple. Actualizaremos esta política conforme evolucionen dichos requisitos."}]},
+    {"title": "7. Recursos de ayuda", "cards": [{"type": "", "body": "Si tú o alguien que conoces necesita ayuda:", "list": ["<strong>España — Emergencias:</strong> 112", "<strong>España — Fundación ANAR</strong> (ayuda a niños y adolescentes): 900 20 20 10", "<strong>INHOPE</strong> — red internacional de líneas de denuncia: <a href='https://www.inhope.org' target='_blank' rel='noopener'>www.inhope.org</a>"]}]}
+  ]
+},
+"en": {
+  "headerSub": "Child Safety Policy",
+  "title": "Child Safety Policy and Standards against Child Sexual Abuse and Exploitation (CSAE)",
+  "subtitle": "Last updated: July 2026",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spain",
+  "contactText": "To report content or behaviour affecting minors:",
+  "intro": "<strong>Plannet</strong> enforces a <strong>zero-tolerance</strong> policy towards child sexual abuse and exploitation (CSAE). This page sets out our standards, the reporting mechanisms available and how we act on any indication of risk to a minor.",
+  "sections": [
+    {"title": "1. Minimum age", "cards": [{"type": "info", "body": "Plannet is <strong>only available to people aged 16 or over</strong>. Registration requires declaring your age and accounts below that limit are not allowed. If we find that an account belongs to someone under 16, we will <strong>delete it</strong>.", "bodyAfter": "Users aged 16 and 17 need the consent of their parent or legal guardian to use the app."}]},
+    {"title": "2. Prohibited behaviour", "cards": [{"type": "danger", "body": "The following are <strong>strictly prohibited</strong> and result in immediate and permanent account deletion:", "list": ["Any child sexual abuse material (CSAM) or content that sexualises minors.", "<strong>Grooming</strong>: contacting a minor with the intent to abuse them or to build trust for sexual purposes.", "Soliciting sexual images, videos or information from a minor.", "Creating events aimed at minors for sexual purposes, recruitment or any other form of exploitation.", "Sharing or distributing links to child abuse material.", "Impersonating a minor, or posing as someone else in order to contact minors."], "bodyAfter": "These behaviours do not merely breach our rules: they are <strong>crimes</strong> and will be treated as such."}]},
+    {"title": "3. How to report", "cards": [{"type": "warning", "body": "If you find content, a user or an event that puts a minor at risk:", "list": ["Write to us immediately at <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>, stating the username or event involved.", "You can <strong>block</strong> the user and <strong>leave</strong> the event from within the app.", "We review all reports involving minors as our <strong>highest priority</strong>."], "bodyAfter": "If you believe a minor is in immediate danger, <strong>contact your local authorities</strong> (in Spain, 112 or the National Police) before or in addition to notifying us."}]},
+    {"title": "4. How we act", "cards": [{"type": "", "body": "When we receive a report or detect signs of CSAE:", "list": ["We review the case as an <strong>urgent priority</strong>.", "We <strong>suspend</strong> the account involved as a precaution while we investigate.", "We <strong>remove</strong> the offending content or event.", "If confirmed, we <strong>permanently delete</strong> the account and retain the information needed to cooperate with the authorities.", "We <strong>report</strong> cases to the competent authorities and comply with their requests."]}]},
+    {"title": "5. Point of contact", "cards": [{"type": "info", "body": "Child safety officer and point of contact for authorities and law enforcement:", "lines": ["<strong>Name:</strong> Jonatan Ortega González", "<strong>Email:</strong> <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>", "<strong>Country:</strong> Spain"]}]},
+    {"title": "6. Regulatory compliance", "cards": [{"type": "", "body": "Plannet complies with applicable Spanish and European legislation on the protection of minors, as well as with <strong>Google Play's Child Safety Standards</strong> and the equivalent Apple App Store guidelines. We will update this policy as those requirements evolve."}]},
+    {"title": "7. Support resources", "cards": [{"type": "", "body": "If you or someone you know needs help:", "list": ["<strong>Spain — Emergencies:</strong> 112", "<strong>Spain — ANAR Foundation</strong> (help for children and teenagers): 900 20 20 10", "<strong>INHOPE</strong> — international network of reporting hotlines: <a href='https://www.inhope.org' target='_blank' rel='noopener'>www.inhope.org</a>"]}]}
+  ]
+},
+"de": {
+  "headerSub": "Kinderschutzrichtlinie",
+  "title": "Kinderschutzrichtlinie und Standards gegen sexuellen Missbrauch und sexuelle Ausbeutung von Kindern (CSAE)",
+  "subtitle": "Letzte Aktualisierung: Juli 2026",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · Spanien",
+  "contactText": "Um Inhalte oder Verhalten zu melden, die Minderjährige betreffen:",
+  "intro": "<strong>Plannet</strong> verfolgt eine Politik der <strong>Null-Toleranz</strong> gegenüber sexuellem Missbrauch und sexueller Ausbeutung von Kindern (CSAE). Diese Seite beschreibt unsere Standards, die verfügbaren Meldewege und wie wir bei Anzeichen einer Gefährdung von Minderjährigen handeln.",
+  "sections": [
+    {"title": "1. Mindestalter", "cards": [{"type": "info", "body": "Plannet steht <strong>ausschließlich Personen ab 16 Jahren</strong> zur Verfügung. Bei der Registrierung muss das Alter angegeben werden; Konten unterhalb dieser Grenze sind nicht zulässig. Stellen wir fest, dass ein Konto einer Person unter 16 Jahren gehört, <strong>löschen wir es</strong>.", "bodyAfter": "Nutzer im Alter von 16 und 17 Jahren benötigen die Zustimmung ihrer Eltern oder ihres gesetzlichen Vertreters."}]},
+    {"title": "2. Verbotenes Verhalten", "cards": [{"type": "danger", "body": "Folgendes ist <strong>strikt verboten</strong> und führt zur sofortigen und dauerhaften Löschung des Kontos:", "list": ["Jegliches Material über sexuellen Kindesmissbrauch (CSAM) oder Inhalte, die Minderjährige sexualisieren.", "<strong>Grooming</strong>: Kontaktaufnahme zu Minderjährigen mit der Absicht des Missbrauchs oder des Vertrauensaufbaus zu sexuellen Zwecken.", "Das Anfordern sexueller Bilder, Videos oder Informationen von Minderjährigen.", "Das Erstellen von Events, die sich zu sexuellen Zwecken, zur Anwerbung oder zu sonstiger Ausbeutung an Minderjährige richten.", "Das Teilen oder Verbreiten von Links zu Missbrauchsmaterial.", "Das Vortäuschen, minderjährig zu sein, oder das Auftreten unter falscher Identität, um Minderjährige zu kontaktieren."], "bodyAfter": "Dieses Verhalten verstößt nicht nur gegen unsere Regeln — es handelt sich um <strong>Straftaten</strong> und wird entsprechend behandelt."}]},
+    {"title": "3. Wie du meldest", "cards": [{"type": "warning", "body": "Wenn du Inhalte, einen Nutzer oder ein Event entdeckst, das Minderjährige gefährdet:", "list": ["Schreibe uns sofort an <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a> und nenne den betroffenen Benutzernamen oder das Event.", "Du kannst den Nutzer in der App <strong>blockieren</strong> und das Event <strong>verlassen</strong>.", "Meldungen, die Minderjährige betreffen, prüfen wir mit <strong>höchster Priorität</strong>."], "bodyAfter": "Wenn du glaubst, dass ein Minderjähriger in unmittelbarer Gefahr ist, <strong>wende dich an die örtlichen Behörden</strong> (in Spanien 112 oder die Nationalpolizei), zusätzlich zur Meldung an uns."}]},
+    {"title": "4. Wie wir handeln", "cards": [{"type": "", "body": "Bei einer Meldung oder Anzeichen von CSAE:", "list": ["Wir prüfen den Fall mit <strong>dringender Priorität</strong>.", "Wir <strong>sperren</strong> das betroffene Konto vorsorglich während der Prüfung.", "Wir <strong>entfernen</strong> die betreffenden Inhalte oder Events.", "Bei Bestätigung <strong>löschen wir das Konto dauerhaft</strong> und bewahren die zur Zusammenarbeit mit den Behörden erforderlichen Informationen auf.", "Wir <strong>melden</strong> Fälle den zuständigen Behörden und erfüllen deren Auskunftsersuchen."]}]},
+    {"title": "5. Kontaktstelle", "cards": [{"type": "info", "body": "Verantwortlicher für Kinderschutz und Kontaktstelle für Behörden und Strafverfolgung:", "lines": ["<strong>Name:</strong> Jonatan Ortega González", "<strong>E-Mail:</strong> <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>", "<strong>Land:</strong> Spanien"]}]},
+    {"title": "6. Einhaltung von Vorschriften", "cards": [{"type": "", "body": "Plannet hält die geltenden spanischen und europäischen Vorschriften zum Schutz Minderjähriger sowie die <strong>Kinderschutzstandards von Google Play</strong> und die entsprechenden Richtlinien des Apple App Store ein. Wir aktualisieren diese Richtlinie entsprechend der Weiterentwicklung dieser Anforderungen."}]},
+    {"title": "7. Hilfsangebote", "cards": [{"type": "", "body": "Wenn du oder jemand, den du kennst, Hilfe braucht:", "list": ["<strong>Spanien — Notruf:</strong> 112", "<strong>Spanien — Stiftung ANAR</strong> (Hilfe für Kinder und Jugendliche): 900 20 20 10", "<strong>INHOPE</strong> — internationales Netzwerk von Meldestellen: <a href='https://www.inhope.org' target='_blank' rel='noopener'>www.inhope.org</a>"]}]}
+  ]
+},
+"zh": {
+  "headerSub": "儿童安全政策",
+  "title": "儿童安全政策及打击儿童性虐待与性剥削 (CSAE) 标准",
+  "subtitle": "最后更新：2026年7月",
+  "footer": "© 2026 Plannet · Jonatan Ortega González · 西班牙",
+  "contactText": "举报涉及未成年人的内容或行为：",
+  "intro": "<strong>Plannet</strong> 对儿童性虐待与性剥削 (CSAE) 采取<strong>零容忍</strong>政策。本页说明我们的标准、可用的举报渠道，以及我们在发现未成年人面临风险时的处理方式。",
+  "sections": [
+    {"title": "1. 最低年龄", "cards": [{"type": "info", "body": "Plannet <strong>仅面向 16 岁及以上人士</strong>。注册需声明年龄，不允许创建低于该年龄的账户。若我们发现某账户属于 16 岁以下人士，将<strong>予以删除</strong>。", "bodyAfter": "16 至 17 岁的用户需获得父母或法定监护人的同意方可使用本应用。"}]},
+    {"title": "2. 禁止的行为", "cards": [{"type": "danger", "body": "以下行为<strong>严格禁止</strong>，一经发现将立即永久删除账户：", "list": ["任何儿童性虐待材料 (CSAM) 或将未成年人性化的内容。", "<strong>诱骗 (grooming)</strong>：以虐待为目的联系未成年人，或为性目的博取其信任。", "向未成年人索取具有性意味的图片、视频或信息。", "以性目的、招募或任何其他剥削形式针对未成年人创建活动。", "分享或传播儿童虐待材料的链接。", "冒充未成年人，或以虚假身份接触未成年人。"], "bodyAfter": "此类行为不仅违反我们的规定，更是<strong>犯罪行为</strong>，我们将据此处理。"}]},
+    {"title": "3. 如何举报", "cards": [{"type": "warning", "body": "如您发现使未成年人面临风险的内容、用户或活动：", "list": ["请立即发送邮件至 <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>，并说明涉及的用户名或活动。", "您可在应用内<strong>屏蔽</strong>该用户并<strong>退出</strong>该活动。", "涉及未成年人的举报，我们以<strong>最高优先级</strong>处理。"], "bodyAfter": "若您认为未成年人正面临紧急危险，请<strong>联系当地主管部门</strong>（在西班牙为 112 或国家警察），并同时通知我们。"}]},
+    {"title": "4. 我们的处理方式", "cards": [{"type": "", "body": "收到举报或发现 CSAE 迹象时：", "list": ["我们以<strong>紧急优先</strong>方式审查该案件。", "在调查期间预防性<strong>暂停</strong>相关账户。", "<strong>删除</strong>违规内容或活动。", "一经确认，<strong>永久删除</strong>该账户，并保留配合主管部门所需的信息。", "向<strong>主管部门举报</strong>相关案件并配合其要求。"]}]},
+    {"title": "5. 联系人", "cards": [{"type": "info", "body": "儿童安全负责人，以及面向主管部门与执法机构的联系人：", "lines": ["<strong>姓名：</strong> Jonatan Ortega González", "<strong>邮箱：</strong> <a href='mailto:devlicius.online@gmail.com'>devlicius.online@gmail.com</a>", "<strong>国家：</strong> 西班牙"]}]},
+    {"title": "6. 合规性", "cards": [{"type": "", "body": "Plannet 遵守西班牙及欧洲有关保护未成年人的适用法规，并遵循 <strong>Google Play 儿童安全标准</strong>及 Apple App Store 的相应准则。我们将随上述要求的变化更新本政策。"}]},
+    {"title": "7. 求助资源", "cards": [{"type": "", "body": "如果您或您认识的人需要帮助：", "list": ["<strong>西班牙 — 紧急电话：</strong> 112", "<strong>西班牙 — ANAR 基金会</strong>（儿童与青少年求助）：900 20 20 10", "<strong>INHOPE</strong> — 国际举报热线网络：<a href='https://www.inhope.org' target='_blank' rel='noopener'>www.inhope.org</a>"]}]}
+  ]
+}
+};
+
+function buildCard(card) {
+  let h = '<div class="card ' + (card.type||'') + '">';
+  if (card.body) h += '<p>' + card.body + '</p>';
+  if (card.lines) card.lines.forEach(function(l){ h += '<p>' + l + '</p>'; });
+  if (card.list) h += '<ul>' + card.list.map(function(l){ return '<li>'+l+'</li>'; }).join('') + '</ul>';
+  if (card.bodyAfter) h += '<p>' + card.bodyAfter + '</p>';
+  return h + '</div>';
+}
+
+function buildLangSwitch(current) {
+  const names = {es:'ES', en:'EN', de:'DE', zh:'中文'};
+  return Object.keys(names).map(function(l){
+    return '<a href="?lang=' + l + '"' + (l === current ? ' class="active"' : '') + '>' + names[l] + '</a>';
+  }).join('');
+}
+
+function render(lang) {
+  const t = childTranslations[lang] || childTranslations['es'];
+  document.documentElement.lang = lang;
+  document.getElementById('header-sub').textContent = t.headerSub;
+  document.title = t.headerSub + ' — Plannet';
+  document.getElementById('footer-text').textContent = t.footer;
+  document.getElementById('lang-switch').innerHTML = buildLangSwitch(lang);
+  let html = '<h1>' + t.title + '</h1><span class="subtitle">' + t.subtitle + '</span><p>' + t.intro + '</p>';
+  t.sections.forEach(function(section) {
+    html += '<h2>' + section.title + '</h2>';
+    section.cards.forEach(function(card) { html += buildCard(card); });
+  });
+  html += '<div class="contact-box"><p>' + t.contactText + '</p><a href="mailto:devlicius.online@gmail.com">devlicius.online@gmail.com</a></div>';
+  document.getElementById('content').innerHTML = html;
+}
+
+const params = new URLSearchParams(window.location.search);
+const lang = params.get('lang') || 'es';
+render(['es','en','de','zh'].includes(lang) ? lang : 'es');
+</script>
+</body>
+</html>

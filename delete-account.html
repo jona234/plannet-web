@@ -29,12 +29,18 @@ const tr = {
   "infoTitle": "Qué se elimina",
   "infoBody": "Al eliminar tu cuenta se borrarán de forma permanente:",
   "infoList": [
-    "Tu perfil, correo electrónico y datos de registro.",
-    "Los eventos que hayas creado, junto con sus participantes y comentarios.",
-    "Tus asistencias a eventos de otras personas.",
+    "Tu perfil, correo electrónico, foto y datos de registro.",
     "Tus amistades y solicitudes pendientes.",
     "Tus conversaciones y mensajes de chat.",
-    "Tus comentarios, valoraciones, puntos y logros."
+    "Tus comentarios, puntos y logros.",
+    "Tus eventos futuros se cancelarán y se avisará a los apuntados."
+  ],
+  "keepTitle": "Qué se conserva de forma anónima",
+  "keepBody": "Para no borrar el historial de otras personas, se conserva sin ningún dato tuyo:",
+  "keepList": [
+    "Los eventos ya finalizados que creaste, con el organizador como <em>Usuario eliminado</em>.",
+    "Tu asistencia a eventos ya finalizados, que forma parte del historial de quien los organizó.",
+    "Las puntuaciones que diste (solo el número), para no falsear la nota media de esos eventos."
   ],
   "warning": "No podremos recuperar nada de esto después. Si solo quieres dejar de recibir avisos, puedes desinstalar la app sin borrar la cuenta.",
   "formTitle": "Confirma tu identidad",
@@ -63,12 +69,18 @@ const tr = {
   "infoTitle": "What gets deleted",
   "infoBody": "Deleting your account will permanently remove:",
   "infoList": [
-    "Your profile, email address and registration details.",
-    "Events you created, along with their participants and comments.",
-    "Your attendance records for other people's events.",
+    "Your profile, email address, photo and registration details.",
     "Your friendships and pending requests.",
     "Your conversations and chat messages.",
-    "Your comments, ratings, points and achievements."
+    "Your comments, points and achievements.",
+    "Your upcoming events will be cancelled and attendees notified."
+  ],
+  "keepTitle": "What is kept anonymously",
+  "keepBody": "So that other people's history is not erased, the following is kept without any of your data:",
+  "keepList": [
+    "Finished events you created, with the organiser shown as <em>Deleted user</em>.",
+    "Your attendance at finished events, which is part of the organiser's history.",
+    "The ratings you gave (the number only), so the average rating of those events is not distorted."
   ],
   "warning": "We will not be able to recover any of this afterwards. If you only want to stop receiving notifications, you can uninstall the app without deleting your account.",
   "formTitle": "Confirm your identity",
@@ -97,12 +109,18 @@ const tr = {
   "infoTitle": "Was gelöscht wird",
   "infoBody": "Mit dem Löschen deines Kontos werden dauerhaft entfernt:",
   "infoList": [
-    "Dein Profil, deine E-Mail-Adresse und deine Registrierungsdaten.",
-    "Von dir erstellte Events samt Teilnehmern und Kommentaren.",
-    "Deine Teilnahmen an Events anderer Personen.",
+    "Dein Profil, deine E-Mail-Adresse, dein Foto und deine Registrierungsdaten.",
     "Deine Freundschaften und offenen Anfragen.",
     "Deine Unterhaltungen und Chat-Nachrichten.",
-    "Deine Kommentare, Bewertungen, Punkte und Erfolge."
+    "Deine Kommentare, Punkte und Erfolge.",
+    "Deine bevorstehenden Events werden abgesagt und die Teilnehmer informiert."
+  ],
+  "keepTitle": "Was anonym erhalten bleibt",
+  "keepBody": "Damit die Historie anderer Personen nicht gelöscht wird, bleibt Folgendes ohne deine Daten erhalten:",
+  "keepList": [
+    "Beendete Events, die du erstellt hast — mit <em>Gelöschter Nutzer</em> als Organisator.",
+    "Deine Teilnahme an beendeten Events, die Teil der Historie des Organisators ist.",
+    "Die von dir abgegebenen Bewertungen (nur die Zahl), damit die Durchschnittsnote nicht verfälscht wird."
   ],
   "warning": "Wir können davon nichts wiederherstellen. Wenn du nur keine Benachrichtigungen mehr erhalten möchtest, kannst du die App deinstallieren, ohne dein Konto zu löschen.",
   "formTitle": "Bestätige deine Identität",
@@ -131,12 +149,18 @@ const tr = {
   "infoTitle": "将删除的内容",
   "infoBody": "删除账户将永久移除：",
   "infoList": [
-    "您的个人资料、电子邮箱和注册信息。",
-    "您创建的活动，及其参与者和评论。",
-    "您参加他人活动的记录。",
+    "您的个人资料、电子邮箱、头像和注册信息。",
     "您的好友关系和待处理请求。",
     "您的对话和聊天消息。",
-    "您的评论、评分、积分和成就。"
+    "您的评论、积分和成就。",
+    "您即将举行的活动将被取消，并通知已报名者。"
+  ],
+  "keepTitle": "以匿名方式保留的内容",
+  "keepBody": "为避免删除他人的历史记录，以下内容将在不含您任何数据的情况下保留：",
+  "keepList": [
+    "您创建的已结束活动，组织者显示为<em>已删除的用户</em>。",
+    "您参加已结束活动的记录，这属于组织者的历史记录。",
+    "您给出的评分（仅数字），以免影响这些活动的平均分。"
   ],
   "warning": "此后我们将无法恢复任何上述内容。如果您只是不想再收到通知，可以卸载应用而不删除账户。",
   "formTitle": "确认您的身份",
@@ -181,6 +205,9 @@ function render(lang) {
     '<span class="subtitle">' + t.subtitle + '</span>' +
     '<div class="card info"><h3>' + t.infoTitle + '</h3><p>' + t.infoBody + '</p><ul>' +
       t.infoList.map(function(l){ return '<li>' + l + '</li>'; }).join('') +
+    '</ul></div>' +
+    '<div class="card"><h3>' + t.keepTitle + '</h3><p>' + t.keepBody + '</p><ul>' +
+      t.keepList.map(function(l){ return '<li>' + l + '</li>'; }).join('') +
     '</ul></div>' +
     '<div class="card warning"><p>' + t.warning + '</p></div>' +
     '<div class="card danger" id="form-card">' +

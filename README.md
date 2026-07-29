@@ -9,6 +9,7 @@ Páginas estáticas de Plannet: información legal y ayuda. Se sirven con
 |---|---|---|
 | `privacyPolicy.html` | Política de privacidad **+ términos de uso** (un solo documento) | Sí (Google Play y App Store) |
 | `childSafetyPolicy.html` | Política de seguridad infantil / normas CSAE | Sí (Google Play, apps sociales) |
+| `delete-account.html` | Eliminación de cuenta (formulario) | Sí (Google Play y App Store) |
 | `frequentQuestions.html` | Preguntas frecuentes | No |
 | `index.html` | Portada con enlaces | No |
 | `styles.css` | Estilos comunes | — |
@@ -33,13 +34,21 @@ Las páginas quedan en:
 https://jona234.github.io/plannet-web/privacyPolicy.html
 https://jona234.github.io/plannet-web/childSafetyPolicy.html
 https://jona234.github.io/plannet-web/frequentQuestions.html
+https://jona234.github.io/plannet-web/delete-account.html
 ```
 
 Esas URLs son las que consume la app en `lib/core/constants.dart`.
 
-## Pendiente
+## Eliminación de cuenta
 
-`delete-account.html` (borrado de cuenta desde web) **no está creada todavía**
-porque requiere un endpoint `DELETE /api/users/me` en el backend, que aún no
-existe. Mientras tanto, la política y las FAQ indican que el borrado se
-solicita por correo, lo cual cumple el requisito de las tiendas.
+`delete-account.html` pide email/nick y contraseña, hace login contra la API
+para obtener el token y llama a `DELETE /api/users/me`. El backend borra el
+usuario y todos sus datos asociados (eventos, asistencias, amistades,
+conversaciones, comentarios y notificaciones).
+
+⚠️ **La constante `API` al principio del fichero apunta a una URL de Railway
+que todavía no existe.** Hay que actualizarla con la URL pública real de la API
+cuando se despliegue, o el formulario no funcionará.
+
+Los usuarios registrados con Google o Apple no tienen contraseña; para ellos la
+página indica que soliciten el borrado por correo.
